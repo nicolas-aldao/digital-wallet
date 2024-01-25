@@ -3,25 +3,3 @@
   padding: 0;
   text-align: center;
 }
-
-.outerContainer {
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: theme("colors.background");
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 400px;
-  height: 100vh;
-  background-color: theme("colors.primary-50");
-}
-
-.user {
-  margin: 32px;
-}

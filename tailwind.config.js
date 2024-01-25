@@ -19,13 +19,23 @@ export default {
         dark: {
           colors: {
             background: "#FFFFFF", // or DEFAULT
-            foreground: "#11181C", // or 50 to 900 DEFAULT
+            secondary: "#9353d3",
+            success: "#17c964",
+            warning: "#f5a524",
+            danger: "#f31260",
+            white: "#FFFFFF",
+            foreground: "#ECEDEE", // or 50 to 900 DEFAULT
             primary: {
+              base: "#006FEE",
+              50: "#001731",
+              500: "#338ef7",
               //... 50 to 900
-              foreground: "#FFFFFF",
+              foreground: "#11181C",
               DEFAULT: "#006FEE",
             },
-            // ... rest of the colors
+            fonts: {
+              primary: "#11181C",
+            },
           },
         },
         light: {
@@ -35,17 +45,20 @@ export default {
             success: "#17c964",
             warning: "#f5a524",
             danger: "#f31260",
+            white: "#FFFFFF",
             foreground: "#ECEDEE", // or 50 to 900 DEFAULT
             primary: {
               base: "#006FEE",
               50: "#001731",
               500: "#338ef7",
               //... 50 to 900
-              foreground: "#FFFFFF",
+              foreground: "#11181C",
               DEFAULT: "#006FEE",
             },
+            fonts: {
+              primary: "#11181C",
+            },
           },
-          // ... rest of the colors
         },
         mytheme: {
           // custom theme
@@ -62,12 +75,3 @@ export default {
     }),
   ],
 };
-
-// module.exports = {
-//   content: [
-//     // ...
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-// }
