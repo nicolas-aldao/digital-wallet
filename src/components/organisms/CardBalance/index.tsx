@@ -10,7 +10,7 @@ import {
 import { User } from "../../../types/user";
 
 interface CardBalanceProps {
-  info: User;
+  info: User | undefined;
 }
 
 export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
