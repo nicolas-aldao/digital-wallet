@@ -7,7 +7,7 @@ import {
   Divider,
 } from "@nextui-org/react";
 
-export const CardBalance = () => {
+export const CardBalance = ({ info }) => {
   return (
     <Card className="max-w-[250px] min-w-[200px] bg-background">
       <CardHeader>
@@ -15,7 +15,7 @@ export const CardBalance = () => {
       </CardHeader>
       <Divider />
       <CardBody>
-        <p className="text-xl font-bold text-fonts-primary">$1.014</p>
+        <p className="text-xl font-bold text-fonts-primary">${info?.balance}</p>
       </CardBody>
       <Divider />
       <CardFooter>
