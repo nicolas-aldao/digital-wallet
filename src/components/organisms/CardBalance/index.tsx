@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   Button,
   Card,
@@ -7,7 +8,11 @@ import {
   Divider,
 } from "@nextui-org/react";
 
-export const CardBalance = ({ info }) => {
+interface CardBalanceProps {
+  info: object;
+}
+
+export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
   return (
     <Card className="max-w-[250px] min-w-[200px] bg-background">
       <CardHeader>
