@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import "./home.css";
-import { CardBalance } from "../../organisms/CardBalance/index";
 import { getUserById } from "../../../services/apiDigitalWallet";
+import { CardBalance } from "../../organisms/CardBalance/index";
+import { User } from "../../../types/user";
+import "./home.css";
 
 export default function Home() {
-  const [data, setData] = useState();
+  const [data, setData] = useState<User>();
 
   useEffect(() => {
     const fetchData = async () => {

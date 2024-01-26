@@ -7,9 +7,10 @@ import {
   CardFooter,
   Divider,
 } from "@nextui-org/react";
+import { User } from "../../../types/user";
 
 interface CardBalanceProps {
-  info: object;
+  info: User;
 }
 
 export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
