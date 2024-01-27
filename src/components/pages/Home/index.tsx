@@ -1,31 +1,14 @@
-import { useEffect, useState } from "react";
-import { getUserById } from "../../../services/apiDigitalWallet";
 import { CardBalance } from "../../organisms/CardBalance/index";
-import { User } from "../../../types/user";
-import "./home.css";
+import { useGetUserById } from "../../../hooks/useGetUserById";
+import { UserFullName } from "../../organisms/UserFullName/index";
 
-export default function Home() {
-  const [data, setData] = useState<User>();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await getUserById("65b32b744548d2c06ed245b2");
-      setData(res?.data);
-      return;
-    };
-    try {
-      fetchData();
-    } catch (e) {
-      console.log("err ", e);
-    }
-  }, []);
+export const Home = () => {
+  const [data] = useGetUserById("65b32b744548d2c06ed245b2");
 
   return (
-    <div className="outerContainer">
-      <div className="wrapper">
-        <p className="m-6 ml-2 text-left">{`${data?.firstname} ${data?.lastname}`}</p>
-        <CardBalance info={data} />
-      </div>
-    </div>
+    <>
+      <UserFullName user={data} />
+      <CardBalance info={data} />
+    </>
   );
-}
+};

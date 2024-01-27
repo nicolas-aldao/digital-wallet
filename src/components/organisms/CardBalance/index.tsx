@@ -8,6 +8,7 @@ import {
   Divider,
 } from "@nextui-org/react";
 import { User } from "../../../types/user";
+import { Balance } from "../Balance/index";
 
 interface CardBalanceProps {
   info: User | undefined;
@@ -21,7 +22,7 @@ export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
       </CardHeader>
       <Divider />
       <CardBody>
-        <p className="text-xl font-bold text-fonts-primary">${info?.balance}</p>
+        <Balance info={info} />
       </CardBody>
       <Divider />
       <CardFooter>

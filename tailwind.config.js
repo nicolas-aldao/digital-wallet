@@ -23,6 +23,7 @@ export default {
             success: "#17c964",
             warning: "#f5a524",
             danger: "#f31260",
+            skeleton: "#94a3b8",
             white: "#FFFFFF",
             foreground: "#ECEDEE", // or 50 to 900 DEFAULT
             primary: {
@@ -45,6 +46,7 @@ export default {
             success: "#17c964",
             warning: "#f5a524",
             danger: "#f31260",
+            skeleton: "#94a3b8",
             white: "#FFFFFF",
             foreground: "#ECEDEE", // or 50 to 900 DEFAULT
             primary: {

@@ -1,12 +1,10 @@
 import axios from "axios";
-
-const baseUrl = "https://json-server-ruby.vercel.app/digital-wallet";
-//const baseUrl = "http://localhost:3000";
+import { API_URL } from "../CONSTANTS";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const getUsers = async (): Promise<any> => {
   try {
-    const res = await axios.get(`${baseUrl}/users`);
+    const res = await axios.get(`${API_URL}/users`);
     return res;
   } catch (err) {
     console.log(err);
@@ -16,7 +14,7 @@ export const getUsers = async (): Promise<any> => {
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const getUserById = async (id: string): Promise<any> => {
   try {
-    const res = await axios.get(`${baseUrl}/users/${id}`);
+    const res = await axios.get(`${API_URL}/users/${id}`);
     return res;
   } catch (err) {
     console.log(err);
