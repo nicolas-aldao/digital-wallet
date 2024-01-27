@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react";
-import "./AppContainer.css";
+import "./appContainer.css";
 
 interface AppContainerProps {
   children: ReactElement;
