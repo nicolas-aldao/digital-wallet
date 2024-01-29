@@ -1,12 +1,10 @@
+import { Outlet } from "react-router-dom";
 import { AppContainer } from "./components/containers/AppContainer/index";
-import { Home } from "./components/pages/Home/index";
 
-function App() {
+export const App = () => {
   return (
     <AppContainer>
-      <Home />
+      <Outlet />
     </AppContainer>
   );
-}
-
-export default App;
+};

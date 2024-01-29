@@ -7,6 +7,7 @@ import {
   CardFooter,
   Divider,
 } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 import { User } from "../../../types/user";
 import { Balance } from "../Balance/index";
 
@@ -15,6 +16,8 @@ interface CardBalanceProps {
 }
 
 export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
+  const navigate = useNavigate();
+
   return (
     <Card className="max-w-[250px] min-w-[200px] bg-background">
       <CardHeader>
@@ -26,7 +29,14 @@ export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
       </CardBody>
       <Divider />
       <CardFooter>
-        <Button className="bg-primary text-white">Transfer Money</Button>
+        <Button
+          className="bg-primary text-white"
+          onClick={() => {
+            navigate("contacts");
+          }}
+        >
+          Transfer Money
+        </Button>
       </CardFooter>
     </Card>
   );
