@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { getUserById } from "../services/apiDigitalWallet";
+import { getUsersByIds } from "../services/apiDigitalWallet";
 import { User } from "../types/user";
 
-export const useGetUserById = (userId: string) => {
-  const [users, setUsers] = useState<User>();
+export const useGetUserByIds = (ids: Array<string>) => {
+  const [data, setData] = useState<User>();
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getUserById(userId);
-      setUsers(res?.data);
+      const res = await getUsersByIds(ids);
+      setData(res?.data);
       return;
     };
     try {
@@ -17,7 +17,7 @@ export const useGetUserById = (userId: string) => {
     } catch (err: any) {
       setErrorMessage(err.toString());
     }
-  }, []);
+  }, [ids]);
 
-  return [users, errorMessage];
+  return [data, errorMessage];
 };
