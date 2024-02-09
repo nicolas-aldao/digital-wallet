@@ -1,8 +1,8 @@
 import {
   Listbox,
   ListboxItem,
-  Chip,
-  ScrollShadow,
+  // Chip,
+  // ScrollShadow,
   Avatar,
 } from "@nextui-org/react";
 import { useSelector } from "react-redux";
