@@ -12,14 +12,10 @@ import { useGetUserByIds } from "../../../hooks/useGetUserByIds";
 export const Contacts = () => {
   const user = useSelector((state: any) => state.user.value);
   const [data] = useGetUserByIds(user.contacts);
-  console.log("data ", typeof data);
 
   return (
     <>
       <p>Contacts Page</p>
-      {/* {data?.map((contact, index) => (
-        <li key={index}>{`${contact.firstname} ${contact.lastname}`}</li>
-      ))} */}
       {data && (
         <Listbox
           // topContent={topContent}
