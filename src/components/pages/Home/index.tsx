@@ -7,7 +7,7 @@ import { UserFullName } from "../../organisms/UserFullName/index";
 
 export const Home = () => {
   const [data] = useGetUserById("65b32b744548d2c06ed245b2");
-  const count = useSelector((state) => state.counter.value);
+  const count = useSelector((state: any) => state.counter.value);
   const dispatch = useDispatch();
   dispatch(saveUserData(data));
 

@@ -6,11 +6,13 @@ import {
   Avatar,
 } from "@nextui-org/react";
 import { useSelector } from "react-redux";
+import { User } from "../../../types/user";
 import { useGetUserByIds } from "../../../hooks/useGetUserByIds";
 
 export const Contacts = () => {
-  const user = useSelector((state) => state.user.value);
+  const user = useSelector((state: any) => state.user.value);
   const [data] = useGetUserByIds(user.contacts);
+  console.log("data ", typeof data);
 
   return (
     <>
@@ -32,7 +34,7 @@ export const Contacts = () => {
           // onSelectionChange={setValues}
           variant="flat"
         >
-          {(item) => (
+          {(item: User) => (
             <ListboxItem key={item.firstname} textValue={item.firstname}>
               <div className="flex gap-2 items-center">
                 <Avatar

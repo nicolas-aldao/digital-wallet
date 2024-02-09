@@ -3,7 +3,7 @@ import { getUsersByIds } from "../services/apiDigitalWallet";
 import { User } from "../types/user";
 
 export const useGetUserByIds = (ids: Array<string>) => {
-  const [data, setData] = useState<User>();
+  const [data, setData] = useState<User[]>([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   useEffect(() => {
