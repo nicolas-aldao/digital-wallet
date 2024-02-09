@@ -15,11 +15,11 @@ export const Home = () => {
     <>
       <UserFullName user={data} />
       <CardBalance info={data} />
-      <div>
+      {/* <div>
         <span>{count}</span>
         <br />
         <button onClick={() => dispatch(increment())}>+</button>
-      </div>
+      </div> */}
     </>
   );
 };
