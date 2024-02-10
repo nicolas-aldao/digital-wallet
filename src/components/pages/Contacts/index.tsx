@@ -6,33 +6,38 @@ import {
   Avatar,
 } from "@nextui-org/react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { User } from "../../../types/user";
 import { useGetUserByIds } from "../../../hooks/useGetUserByIds";
 
 export const Contacts = () => {
   const user = useSelector((state: any) => state.user.value);
   const [data] = useGetUserByIds(user.contacts);
+  const navigate = useNavigate();
 
   return (
     <>
       <p>Contacts Page</p>
       {data && (
         <Listbox
-          // topContent={topContent}
-          classNames={{
-            base: "max-w-xs",
-            list: "max-h-[300px] overflow-scroll",
-          }}
+          // classNames={{
+          //   base: "max-w-xs",
+          //   list: "max-h-[300px] overflow-scroll",
+          // }}
           defaultSelectedKeys={["1"]}
           items={data}
           label="Assigned to"
-          selectionMode="multiple"
-          // onSelectionChange={setValues}
+          color="primary"
           variant="flat"
         >
           {(item: User) => (
             <ListboxItem key={item.firstname} textValue={item.firstname}>
-              <div className="flex gap-2 items-center">
+              <div
+                className="flex gap-2 items-center"
+                onClick={() => {
+                  navigate("/transfer/1");
+                }}
+              >
                 <Avatar
                   alt={item.firstname}
                   className="flex-shrink-0"

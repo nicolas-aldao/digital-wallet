@@ -7,6 +7,7 @@ import { Error } from "./components/pages/Error/index";
 import { App } from "./App";
 import { Home } from "./components/pages/Home/index";
 import { Contacts } from "./components/pages/Contacts/index";
+import { Transfer } from "./components/pages/Transfer";
 import "./index.css";
 import store from "./store";
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/contacts",
         element: <Contacts />,
+      },
+      {
+        path: "/transfer/:id",
+        element: <Transfer />,
       },
     ],
   },
