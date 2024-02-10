@@ -59,6 +59,7 @@ export default {
             },
             fonts: {
               primary: "#11181C",
+              secondary: "#ffffff",
             },
           },
         },

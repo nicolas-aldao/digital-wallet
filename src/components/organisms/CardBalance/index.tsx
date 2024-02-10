@@ -30,7 +30,7 @@ export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
       <Divider />
       <CardFooter>
         <Button
-          className="bg-primary text-white"
+          className="bg-primary text-fonts-secondary"
           onClick={() => {
             navigate("contacts");
           }}

@@ -8,7 +8,7 @@ interface UserFullNameProps {
 
 export const UserFullName: FC<UserFullNameProps> = ({ user }) => {
   return (
-    <p className="m-6 ml-2 text-left">
+    <p className="m-6 ml-2 text-left text-fonts-secondary">
       {user === undefined ? (
         <Skeleton className="h-3 w-3/5 mt-2 rounded-lg bg-skeleton" />
       ) : (
