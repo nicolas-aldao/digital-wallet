@@ -1,18 +1,12 @@
 .input {
-  /* border: solid red 3px; */
-}
-
-.input:hover,
-.input div:hover {
-  background-color: var(--background-color);
+  margin: 0 !important;
 }
 
 .input div div {
-  /* border: solid red 3px; */
   height: 100px;
 }
-.input div div:hover {
-  /* border: solid red 3px; */
+.input > div > div:hover {
+  background-color: var(--background-color);
   height: 100px;
 }
 
@@ -20,9 +14,12 @@
   display: none;
 }
 .input div div div div span {
+  color: theme("colors.fonts-secondary");
   font-size: 40px;
 }
-.input div div div input {
+.input div div div input,
+.input div div div input::placeholder {
+  color: theme("colors.fonts-secondary");
   height: fit-content;
   -moz-appearance: textfield;
   font-size: 60px;

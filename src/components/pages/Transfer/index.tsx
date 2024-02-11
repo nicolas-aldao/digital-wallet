@@ -49,7 +49,7 @@ export const Transfer = () => {
       >
         Go back
       </Button>
-      <p>Transfer Page</p>
+      <p>Transfer</p>
       <Input
         type="number"
         className={`p-1 ${classes.input}`}
