@@ -1,3 +1,33 @@
+.input {
+  /* border: solid red 3px; */
+}
+
+.input:hover,
+.input div:hover {
+  background-color: var(--background-color);
+}
+
+.input div div {
+  /* border: solid red 3px; */
+  height: 100px;
+}
+.input div div:hover {
+  /* border: solid red 3px; */
+  height: 100px;
+}
+
+.input div div label {
+  display: none;
+}
+.input div div div div span {
+  font-size: 40px;
+}
+.input div div div input {
+  height: fit-content;
+  -moz-appearance: textfield;
+  font-size: 60px;
+}
+
 .modal {
   display: flex;
   align-self: center;

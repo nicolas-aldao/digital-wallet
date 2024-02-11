@@ -44,7 +44,7 @@ export const Transfer = () => {
       <p>Transfer Page</p>
       <Input
         type="number"
-        className="p-5"
+        className={`p-1 ${classes.input}`}
         label="Price"
         color="primary"
         placeholder="0.00"
@@ -61,6 +61,7 @@ export const Transfer = () => {
       <Button
         color="primary"
         className="mt-5"
+        disabled={isLoading || amount === 0}
         onClick={() => {
           setRunHook(true);
         }}
