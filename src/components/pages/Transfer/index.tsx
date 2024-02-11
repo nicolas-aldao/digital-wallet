@@ -41,6 +41,14 @@ export const Transfer = () => {
 
   return (
     <>
+      <Button
+        onClick={() => navigate(-1)}
+        color="primary"
+        variant="light"
+        className="w-fit mb-3"
+      >
+        Go back
+      </Button>
       <p>Transfer Page</p>
       <Input
         type="number"

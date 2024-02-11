@@ -1,4 +1,4 @@
-import { Listbox, ListboxItem, Avatar } from "@nextui-org/react";
+import { Listbox, ListboxItem, Avatar, Spinner } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { User } from "../../../types/user";
@@ -12,11 +12,13 @@ export const Contacts = () => {
   return (
     <>
       <p>Contacts</p>
+      {/* <Spinner color="primary" /> */}
       {data && (
         <Listbox
-          defaultSelectedKeys={["1"]}
+          // defaultSelectedKeys={["1"]}
           items={data}
-          label="Assigned to"
+          // label="Assigned to"
+          emptyContent={<Spinner color="primary" />}
           color="primary"
           variant="flat"
         >
