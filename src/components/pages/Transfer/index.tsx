@@ -2,7 +2,6 @@ import {
   Button,
   Input,
   Modal,
-  ModalBody,
   ModalContent,
   ModalFooter,
   ModalHeader,
@@ -21,7 +20,7 @@ export const Transfer = () => {
   const navigate = useNavigate();
   const { response, errorMessage } = useTransfer(
     user?._id,
-    id,
+    id!,
     amount,
     runHook
   );
@@ -64,21 +63,21 @@ export const Transfer = () => {
         // onOpenChange={onOpenChange}
       >
         <ModalContent className="w-fit bg-primary-50">
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1 text-fonts-secondary border-colors-secondary">
-                Successful transfer!
-              </ModalHeader>
-              {/* <ModalBody>
+          {/* {(onClose) => ( */}
+          <>
+            <ModalHeader className="flex flex-col gap-1 text-fonts-secondary border-colors-secondary">
+              Successful transfer!
+            </ModalHeader>
+            {/* <ModalBody>
                 <p className="text-fonts-primary">Successful transfer</p>
               </ModalBody> */}
-              <ModalFooter>
-                <Button color="success" onPress={() => navigate("/")}>
-                  Close
-                </Button>
-              </ModalFooter>
-            </>
-          )}
+            <ModalFooter>
+              <Button color="success" onPress={() => navigate("/")}>
+                Close
+              </Button>
+            </ModalFooter>
+          </>
+          {/* )} */}
         </ModalContent>
       </Modal>
     </>
