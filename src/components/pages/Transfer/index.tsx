@@ -19,6 +19,7 @@ export const Transfer = () => {
   const [amount, setAmount] = useState<number>(0);
   const [runHook, setRunHook] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [messageModal, setMessageModal] = useState("");
   const navigate = useNavigate();
   const { response, isLoading, errorMessage } = useTransfer(
     user?._id,
@@ -28,8 +29,14 @@ export const Transfer = () => {
   );
 
   useEffect(() => {
-    if (response) setIsOpen(true);
-    if (errorMessage) console.log("errorMessage ", errorMessage);
+    if (response) {
+      setMessageModal(response);
+      setIsOpen(true);
+    }
+    if (errorMessage) {
+      setMessageModal(errorMessage);
+      setIsOpen(true);
+    }
   }, [response, errorMessage]);
 
   return (
@@ -65,11 +72,16 @@ export const Transfer = () => {
         <ModalContent className="w-fit bg-primary-50">
           <>
             <ModalHeader className="flex flex-col gap-1 text-fonts-secondary border-colors-secondary">
-              Successful transfer!
+              {messageModal}
             </ModalHeader>
             <ModalFooter>
-              <Button color="success" onPress={() => navigate("/")}>
-                Close
+              <Button
+                color={errorMessage ? "danger" : "success"}
+                onPress={() =>
+                  errorMessage ? setIsOpen(false) : navigate("/")
+                }
+              >
+                {response ? "Back to home" : "Close"}
               </Button>
             </ModalFooter>
           </>

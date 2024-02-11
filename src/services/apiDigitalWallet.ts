@@ -42,6 +42,6 @@ export const doTransfer = async (
     });
     return res;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };

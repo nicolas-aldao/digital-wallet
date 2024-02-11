@@ -16,7 +16,11 @@ export const useTransfer = (
       const runTransfer = async () => {
         setIsLoading(true);
         const res = await doTransfer(idSender, idReceiver, amount);
-        setResponse(res?.data?.message);
+        if (res?.request?.status === 200) {
+          setResponse(res?.data?.message);
+        } else if (res?.response?.status === 400) {
+          setErrorMessage(res?.response?.data?.error);
+        }
         setIsLoading(false);
         return;
       };

@@ -1,10 +1,4 @@
-import {
-  Listbox,
-  ListboxItem,
-  // Chip,
-  // ScrollShadow,
-  Avatar,
-} from "@nextui-org/react";
+import { Listbox, ListboxItem, Avatar } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { User } from "../../../types/user";
@@ -17,13 +11,9 @@ export const Contacts = () => {
 
   return (
     <>
-      <p>Contacts Page</p>
+      <p>Contacts</p>
       {data && (
         <Listbox
-          // classNames={{
-          //   base: "max-w-xs",
-          //   list: "max-h-[300px] overflow-scroll",
-          // }}
           defaultSelectedKeys={["1"]}
           items={data}
           label="Assigned to"
@@ -51,7 +41,7 @@ export const Contacts = () => {
                     {item.firstname} {item.lastname}
                   </span>
                   <span className="text-tiny text-default-400">
-                    placeholder
+                    National Bank Account
                   </span>
                 </div>
               </div>
