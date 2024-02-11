@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTransfer } from "../../../hooks/useTransfer";
+import classes from "./transfer.module.css";
 
 export const Transfer = () => {
   const user = useSelector((state: any) => state.user.value);
@@ -58,26 +59,18 @@ export const Transfer = () => {
       >
         Transfer
       </Button>
-      <Modal
-        isOpen={isOpen}
-        // onOpenChange={onOpenChange}
-      >
+      <Modal isOpen={isOpen} className={classes.modal}>
         <ModalContent className="w-fit bg-primary-50">
-          {/* {(onClose) => ( */}
           <>
             <ModalHeader className="flex flex-col gap-1 text-fonts-secondary border-colors-secondary">
               Successful transfer!
             </ModalHeader>
-            {/* <ModalBody>
-                <p className="text-fonts-primary">Successful transfer</p>
-              </ModalBody> */}
             <ModalFooter>
               <Button color="success" onPress={() => navigate("/")}>
                 Close
               </Button>
             </ModalFooter>
           </>
-          {/* )} */}
         </ModalContent>
       </Modal>
     </>

@@ -1,0 +1,7 @@
+.modal {
+  display: flex;
+  align-self: center;
+}
+.modal > button {
+  display: none;
+}
