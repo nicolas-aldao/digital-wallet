@@ -5,6 +5,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
+  Spinner,
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -19,7 +20,7 @@ export const Transfer = () => {
   const [runHook, setRunHook] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { response, errorMessage } = useTransfer(
+  const { response, isLoading, errorMessage } = useTransfer(
     user?._id,
     id!,
     amount,
@@ -59,6 +60,7 @@ export const Transfer = () => {
       >
         Transfer
       </Button>
+      {isLoading && <Spinner color="primary" />}
       <Modal isOpen={isOpen} className={classes.modal}>
         <ModalContent className="w-fit bg-primary-50">
           <>

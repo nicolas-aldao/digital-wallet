@@ -8,22 +8,26 @@ export const useTransfer = (
   runCode: boolean
 ) => {
   const [response, setResponse] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   useEffect(() => {
     if (runCode) {
       const runTransfer = async () => {
+        setIsLoading(true);
         const res = await doTransfer(idSender, idReceiver, amount);
         setResponse(res?.data?.message);
+        setIsLoading(false);
         return;
       };
       try {
         runTransfer();
       } catch (err: any) {
         setErrorMessage(err?.data?.error?.toString());
+        setIsLoading(false);
       }
     }
   }, [runCode]);
 
-  return { response, errorMessage };
+  return { response, isLoading, errorMessage };
 };
