@@ -35,7 +35,7 @@ export const Contacts = () => {
               <div
                 className="flex gap-2 items-center"
                 onClick={() => {
-                  navigate("/transfer/1");
+                  navigate(`/transfer/${item._id}`);
                 }}
               >
                 <Avatar

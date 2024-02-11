@@ -28,3 +28,20 @@ export const getUserById = async (id: string): Promise<any> => {
     console.log(err);
   }
 };
+
+export const doTransfer = async (
+  senderId: string,
+  receiverId: string,
+  amount: number
+): Promise<any> => {
+  try {
+    const res = await axios.post(`${API_URL}/transfer`, {
+      senderId,
+      receiverId,
+      amount,
+    });
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
