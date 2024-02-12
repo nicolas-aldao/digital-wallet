@@ -32,7 +32,7 @@ export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
         <Button
           className="bg-primary text-fonts-secondary"
           onClick={() => {
-            navigate("contacts");
+            navigate("/contacts");
           }}
           disabled={info === undefined}
         >
