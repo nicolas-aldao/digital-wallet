@@ -34,6 +34,7 @@ export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
           onClick={() => {
             navigate("contacts");
           }}
+          disabled={info === undefined}
         >
           Transfer Money
         </Button>

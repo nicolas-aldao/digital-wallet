@@ -1,8 +1,11 @@
 import { Listbox, ListboxItem, Avatar, Spinner } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { API_GET_RANDOM_AVATARS } from "../../../Constants";
 import { User } from "../../../types/user";
 import { useGetUserByIds } from "../../../hooks/useGetUserByIds";
+import { GoBackButton } from "../../atoms/GoBackButton";
+import { PageTitle } from "../../atoms/PageTitle";
 
 export const Contacts = () => {
   const user = useSelector((state: any) => state.user.value);
@@ -11,14 +14,16 @@ export const Contacts = () => {
 
   return (
     <>
-      <p>Contacts</p>
-      {/* <Spinner color="primary" /> */}
+      <GoBackButton />
+      <PageTitle title="Contacts" />
       {data && (
         <Listbox
-          // defaultSelectedKeys={["1"]}
           items={data}
-          // label="Assigned to"
-          emptyContent={<Spinner color="primary" />}
+          emptyContent={
+            <div className="flex justify-center items-center mt-8">
+              <Spinner color="primary" />
+            </div>
+          }
           color="primary"
           variant="flat"
         >
@@ -34,7 +39,7 @@ export const Contacts = () => {
                   alt={item.firstname}
                   className="flex-shrink-0"
                   size="sm"
-                  src={`https://xsgames.co/randomusers/assets/avatars/male/${
+                  src={`${API_GET_RANDOM_AVATARS}/male/${
                     Math.floor(Math.random() * 30) + 1
                   }.jpg`}
                 />

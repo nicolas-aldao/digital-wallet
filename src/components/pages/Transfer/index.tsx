@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTransfer } from "../../../hooks/useTransfer";
+import { GoBackButton } from "../../atoms/GoBackButton";
+import { PageTitle } from "../../atoms/PageTitle";
 import classes from "./transfer.module.css";
 
 export const Transfer = () => {
@@ -41,15 +43,8 @@ export const Transfer = () => {
 
   return (
     <>
-      <Button
-        onClick={() => navigate(-1)}
-        color="primary"
-        variant="light"
-        className="w-fit mb-3"
-      >
-        Go back
-      </Button>
-      <p>Transfer</p>
+      <GoBackButton />
+      <PageTitle title="Transfer" />
       <Input
         type="number"
         className={`p-1 ${classes.input}`}

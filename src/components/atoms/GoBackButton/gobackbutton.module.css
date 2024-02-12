@@ -1,0 +1,8 @@
+.button {
+  height: 20px !important;
+  min-width: fit-content !important;
+}
+
+.button:hover {
+  background-color: theme("colors.primary-50") !important;
+}
