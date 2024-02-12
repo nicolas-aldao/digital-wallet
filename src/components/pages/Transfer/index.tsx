@@ -44,7 +44,7 @@ export const Transfer = () => {
   return (
     <>
       <GoBackButton />
-      <PageTitle title="Transfer" />
+      <PageTitle title="Transfer Money" />
       <Input
         type="number"
         className={`p-1 ${classes.input}`}

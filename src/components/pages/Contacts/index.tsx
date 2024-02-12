@@ -15,7 +15,7 @@ export const Contacts = () => {
   return (
     <>
       <GoBackButton />
-      <PageTitle title="Contacts" />
+      <PageTitle title="Your Contacts" />
       {data && (
         <Listbox
           items={data}

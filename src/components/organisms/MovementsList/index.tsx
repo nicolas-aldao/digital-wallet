@@ -20,7 +20,7 @@ export const MovementsList: FC<MovementsListProps> = ({
         {(!movements || !userId) && <CenteredSpinner />}
         {movements && userId && (
           <>
-            <PageTitle title="Movements" className="mt-4" />
+            <PageTitle title="Your Movements" className="mt-5" />
             <Listbox
               items={movements}
               // emptyContent={<CenteredSpinner />}
