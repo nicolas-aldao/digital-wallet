@@ -82,7 +82,9 @@ export const Transfer = () => {
               <Button
                 color={errorMessage ? "danger" : "success"}
                 onPress={() =>
-                  errorMessage ? setIsOpen(false) : navigate("/")
+                  errorMessage
+                    ? setIsOpen(false)
+                    : navigate(`/home/${user?._id}`)
                 }
               >
                 {response ? "Back to home" : "Close"}

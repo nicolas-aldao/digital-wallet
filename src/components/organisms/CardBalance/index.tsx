@@ -10,6 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { User } from "../../../types/user";
 import { Balance } from "../Balance/index";
+import classes from "./cardbalance.module.css";
 
 interface CardBalanceProps {
   info: User | undefined;
@@ -23,11 +24,11 @@ export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
       <CardHeader>
         <p className="text-md text-fonts-primary">My balance</p>
       </CardHeader>
-      <Divider />
-      <CardBody>
+      <Divider className={classes.divider} />
+      <CardBody className="flex justify-center">
         <Balance info={info} />
       </CardBody>
-      <Divider />
+      <Divider className={classes.divider} />
       <CardFooter>
         <Button
           className="bg-primary text-fonts-secondary"

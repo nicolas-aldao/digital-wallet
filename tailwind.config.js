@@ -25,6 +25,8 @@ export default {
             danger: "#f31260",
             skeleton: "#94a3b8",
             white: "#FFFFFF",
+            gray: "#c2c2c2",
+            whiteBlack: "#11181C",
             foreground: "#ECEDEE", // or 50 to 900 DEFAULT
             primary: {
               base: "#006FEE",
@@ -36,6 +38,7 @@ export default {
             },
             fonts: {
               primary: "#11181C",
+              secondary: "#ffffff",
             },
           },
         },
@@ -48,6 +51,8 @@ export default {
             danger: "#f31260",
             skeleton: "#94a3b8",
             white: "#FFFFFF",
+            gray: "#ECEDEE",
+            whiteBlack: "#ECEDEE",
             foreground: "#ECEDEE", // or 50 to 900 DEFAULT
             primary: {
               base: "#006FEE",

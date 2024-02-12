@@ -1,7 +1,8 @@
 import { Button, Select, SelectItem } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetUsers } from "../../../hooks/useGetUsers";
+import { PageTitle } from "../../atoms/PageTitle";
 import classes from "./changeuser.module.css";
 
 export const ChangeUser = () => {
@@ -9,12 +10,9 @@ export const ChangeUser = () => {
   const [users] = useGetUsers();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log("val ", value);
-  }, [value]);
-
   return (
     <>
+      <PageTitle title="Welcome to Digital Wallet App!" className="mb-5" />
       {users && (
         <Select
           label="Select an user"
@@ -32,6 +30,7 @@ export const ChangeUser = () => {
       <Button
         onClick={() => navigate(`/home/${value}`)}
         disabled={value === ""}
+        color="primary"
         className="mt-4"
       >
         Login
