@@ -45,3 +45,12 @@ export const doTransfer = async (
     return err;
   }
 };
+
+export const getMovements = async (id: string): Promise<any> => {
+  try {
+    const res = await axios.get(`${API_URL}/movements/${id}`);
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};
