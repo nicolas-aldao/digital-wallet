@@ -12,12 +12,15 @@ export const ChangeUser = () => {
 
   return (
     <>
-      <PageTitle title="Welcome to Digital Wallet App!" className="mb-5" />
+      <PageTitle
+        title="Welcome to Digital Wallet App!"
+        className="mb-10 flex self-center"
+      />
       {users && (
         <Select
           label="Select an user"
           className={`max-w-xs ${classes.select}`}
-          color="primary"
+          color="default"
           onChange={(e) => setValue(e.target.value)}
         >
           {users.map((user) => (
@@ -31,7 +34,7 @@ export const ChangeUser = () => {
         onClick={() => navigate(`/home/${value}`)}
         disabled={value === ""}
         color="primary"
-        className="mt-4"
+        className="mt-10 w-fit flex self-center"
       >
         Login
       </Button>
