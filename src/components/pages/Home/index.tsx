@@ -15,7 +15,7 @@ export const Home = () => {
 
   return (
     <>
-      <GoBackButton />
+      <GoBackButton text="Sign out" route="/" />
       <UserFullName user={user} />
       <CardBalance info={user} />
       <MovementsList userId={id} />
