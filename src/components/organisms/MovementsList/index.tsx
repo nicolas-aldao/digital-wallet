@@ -5,7 +5,6 @@ import { formatDateTime } from "../../../utils/formatDateTime";
 import { useGetMovements } from "../../../hooks/useGetMovements";
 import { CenteredSpinner } from "../../atoms/CenteredSpinner";
 import { PageTitle } from "../../atoms/PageTitle";
-import { GENERIC_MESSAGE_ERROR } from "../../../Constants";
 
 interface MovementsListProps {
   userId: string | undefined;
