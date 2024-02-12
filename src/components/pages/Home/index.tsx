@@ -9,28 +9,28 @@ import { useGetMovements } from "../../../hooks/useGetMovements";
 import { Movements } from "../../../types/movements";
 import classes from "./home.module.css";
 import { PageTitle } from "../../atoms/PageTitle";
+import { CenteredSpinner } from "../../atoms/CenteredSpinner";
+import { MovementsList } from "../../organisms/MovementsList";
 
 export const Home = () => {
   const userId = "65b32b744548d2c06ed245b2";
-  const [data] = useGetUserById(userId);
+  const [user] = useGetUserById(userId);
   const [movements] = useGetMovements(userId);
   const dispatch = useDispatch();
-  dispatch(saveUserData(data));
+  dispatch(saveUserData(user));
 
   return (
     <>
-      <UserFullName user={data} />
-      <CardBalance info={data} />
-      {movements && (
+      <UserFullName user={user} />
+      <CardBalance info={user} />
+      <MovementsList movements={movements} userId={user?._id} />
+      {/* {(!movements || !user?._id) && <CenteredSpinner />}
+      {movements && user?._id && (
         <>
           <PageTitle title="Movements" className="mt-4" />
           <Listbox
             items={movements}
-            emptyContent={
-              <div className="flex justify-center items-center mt-8">
-                <Spinner color="primary" />
-              </div>
-            }
+            // emptyContent={<CenteredSpinner />}
             color="primary"
             variant="light"
             className={`${classes.movementsList}`}
@@ -40,25 +40,25 @@ export const Home = () => {
                 <div key={item._id}>
                   <span
                     className={
-                      item.senderId === data?._id
+                      item.senderId === user?._id
                         ? "text-danger"
                         : "text-success"
                     }
                   >
-                    {item.senderId === data?._id ? "You sent " : "You receive "}
+                    {item.senderId === user?._id ? "You sent " : "You receive "}
                   </span>
                   <span
                     className={
-                      item.senderId === data?._id
+                      item.senderId === user?._id
                         ? "text-danger"
                         : "text-success"
                     }
                   >
                     ${item.amount}{" "}
                   </span>
-                  <span>{item.senderId === data?._id ? "to " : "from "}</span>
+                  <span>{item.senderId === user?._id ? "to " : "from "}</span>
                   <span>
-                    {item.senderId === data?._id
+                    {item.senderId === user?._id
                       ? item.receiverFullname
                       : item.senderFullname}
                   </span>
@@ -68,7 +68,7 @@ export const Home = () => {
             )}
           </Listbox>
         </>
-      )}
+      )} */}
     </>
   );
 };

@@ -3,13 +3,13 @@ import { getUserById } from "../services/apiDigitalWallet";
 import { User } from "../types/user";
 
 export const useGetUserById = (userId: string) => {
-  const [users, setUsers] = useState<User>();
+  const [user, setUser] = useState<User>();
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await getUserById(userId);
-      setUsers(res?.data);
+      setUser(res?.data);
       return;
     };
     try {
@@ -19,5 +19,5 @@ export const useGetUserById = (userId: string) => {
     }
   }, []);
 
-  return [users, errorMessage];
+  return [user, errorMessage];
 };
