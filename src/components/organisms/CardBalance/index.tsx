@@ -20,7 +20,7 @@ export const CardBalance: FC<CardBalanceProps> = ({ info }) => {
   const navigate = useNavigate();
 
   return (
-    <Card className="max-w-[250px] min-w-[200px] bg-background">
+    <Card className="max-w-[250px] min-w-[200px] min-h-[160px] bg-background">
       <CardHeader>
         <p className="text-md text-fonts-primary">My balance</p>
       </CardHeader>

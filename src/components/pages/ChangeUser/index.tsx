@@ -16,12 +16,13 @@ export const ChangeUser = () => {
         title="Welcome to Digital Wallet App!"
         className="mb-10 flex self-center"
       />
+      <p className="mb-3">Select an user to test the demo:</p>
       {users && (
         <Select
-          label="Select an user"
           className={`max-w-xs ${classes.select}`}
           color="default"
           onChange={(e) => setValue(e.target.value)}
+          placeholder={"Selected User"}
         >
           {users.map((user) => (
             <SelectItem key={user._id} value={user._id}>
@@ -34,7 +35,7 @@ export const ChangeUser = () => {
         onClick={() => navigate(`/home/${value}`)}
         disabled={value === ""}
         color="primary"
-        className="mt-10 w-fit flex self-center"
+        className="mt-4 w-fit flex self-center"
       >
         Login
       </Button>

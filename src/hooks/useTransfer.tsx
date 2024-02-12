@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { GENERIC_MESSAGE_ERROR } from "../Constants";
 import { doTransfer } from "../services/apiDigitalWallet";
 
 export const useTransfer = (
@@ -9,7 +10,7 @@ export const useTransfer = (
 ) => {
   const [response, setResponse] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (runCode) {
@@ -27,7 +28,7 @@ export const useTransfer = (
       try {
         runTransfer();
       } catch (err: any) {
-        setErrorMessage(err?.data?.error?.toString());
+        setErrorMessage(GENERIC_MESSAGE_ERROR);
         setIsLoading(false);
       }
     }

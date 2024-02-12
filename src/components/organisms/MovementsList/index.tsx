@@ -1,26 +1,26 @@
 import { FC } from "react";
 import { Listbox, ListboxItem, ScrollShadow } from "@nextui-org/react";
 import { Movements } from "../../../types/movements";
+import { formatDateTime } from "../../../utils/formatDateTime";
+import { useGetMovements } from "../../../hooks/useGetMovements";
 import { CenteredSpinner } from "../../atoms/CenteredSpinner";
 import { PageTitle } from "../../atoms/PageTitle";
-import { formatDateTime } from "../../../utils/formatDateTime";
+import { GENERIC_MESSAGE_ERROR } from "../../../Constants";
 
 interface MovementsListProps {
-  movements: Movements[] | undefined;
   userId: string | undefined;
 }
 
-export const MovementsList: FC<MovementsListProps> = ({
-  movements,
-  userId,
-}) => {
+export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
+  const { movements, errorMessage } = useGetMovements(userId!);
+
   return (
     <>
+      <PageTitle title="Your Movements" className="mt-5" />
       <ScrollShadow>
-        {(!movements || !userId) && <CenteredSpinner />}
+        {!movements && !errorMessage && <CenteredSpinner />}
         {movements && userId && (
           <>
-            <PageTitle title="Your Movements" className="mt-5" />
             <Listbox
               items={movements}
               // emptyContent={<CenteredSpinner />}
@@ -61,6 +61,7 @@ export const MovementsList: FC<MovementsListProps> = ({
             </Listbox>
           </>
         )}
+        {errorMessage && <p>{errorMessage}</p>}
       </ScrollShadow>
     </>
   );
