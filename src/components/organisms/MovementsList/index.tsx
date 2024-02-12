@@ -45,7 +45,7 @@ export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
                           : "text-success"
                       }
                     >
-                      ${item.amount}{" "}
+                      ${item.amount.toFixed(2)}{" "}
                     </span>
                     <span>{item.senderId === userId ? "to " : "from "}</span>
                     <span>

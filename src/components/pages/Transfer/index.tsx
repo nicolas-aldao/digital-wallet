@@ -52,6 +52,7 @@ export const Transfer = () => {
         color="primary"
         placeholder="0.00"
         labelPlacement="outside"
+        value={amount.toFixed(2)}
         onChange={(e) => {
           setAmount(Number(e.target.value));
         }}

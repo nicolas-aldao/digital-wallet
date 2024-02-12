@@ -13,7 +13,7 @@ export const Balance: FC<BalanceProps> = ({ info }) => {
       {info === undefined ? (
         <Skeleton className="self-center ml-3 h-3 w-3/5 rounded-lg" />
       ) : (
-        info?.balance
+        info?.balance.toFixed(2)
       )}
     </p>
   );
