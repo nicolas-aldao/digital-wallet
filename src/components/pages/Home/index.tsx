@@ -1,26 +1,29 @@
 import { useDispatch } from "react-redux";
-import { Listbox, ListboxItem, Spinner } from "@nextui-org/react";
-import { formatDateTime } from "../../../utils/formatDateTime";
+// import { Listbox, ListboxItem, Spinner } from "@nextui-org/react";
+// import { formatDateTime } from "../../../utils/formatDateTime";
 import { saveUserData } from "../../../features/userSlice";
 import { UserFullName } from "../../organisms/UserFullName/index";
 import { CardBalance } from "../../organisms/CardBalance/index";
 import { useGetUserById } from "../../../hooks/useGetUserById";
 import { useGetMovements } from "../../../hooks/useGetMovements";
-import { Movements } from "../../../types/movements";
-import classes from "./home.module.css";
-import { PageTitle } from "../../atoms/PageTitle";
-import { CenteredSpinner } from "../../atoms/CenteredSpinner";
+// import { Movements } from "../../../types/movements";
+// import classes from "./home.module.css";
+// import { PageTitle } from "../../atoms/PageTitle";
+// import { CenteredSpinner } from "../../atoms/CenteredSpinner";
 import { MovementsList } from "../../organisms/MovementsList";
+import { useParams } from "react-router-dom";
+import { GoBackButton } from "../../atoms/GoBackButton";
 
 export const Home = () => {
-  const userId = "65b32b744548d2c06ed245b2";
-  const [user] = useGetUserById(userId);
-  const [movements] = useGetMovements(userId);
+  const { id } = useParams();
+  const [user] = useGetUserById(id!);
+  const [movements] = useGetMovements(id!);
   const dispatch = useDispatch();
   dispatch(saveUserData(user));
 
   return (
     <>
+      <GoBackButton />
       <UserFullName user={user} />
       <CardBalance info={user} />
       <MovementsList movements={movements} userId={user?._id} />

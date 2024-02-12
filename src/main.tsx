@@ -10,6 +10,7 @@ import { Contacts } from "./components/pages/Contacts/index";
 import { Transfer } from "./components/pages/Transfer";
 import "./index.css";
 import store from "./store";
+import { ChangeUser } from "./components/pages/ChangeUser";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <ChangeUser />,
       },
       {
         path: "/contacts",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/transfer/:id",
         element: <Transfer />,
+      },
+      {
+        path: "/home/:id",
+        element: <Home />,
       },
     ],
   },
