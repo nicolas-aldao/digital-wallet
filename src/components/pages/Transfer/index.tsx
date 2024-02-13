@@ -43,7 +43,7 @@ export const Transfer = () => {
 
   return (
     <>
-      <GoBackButton text="Back to Home" />
+      <GoBackButton />
       <PageTitle title="Transfer Money" />
       <Input
         type="number"
