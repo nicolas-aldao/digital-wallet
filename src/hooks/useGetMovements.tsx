@@ -10,19 +10,27 @@ export const useGetMovements = (userId: string) => {
   const [errorMessage, setErrorMessage] = useState<String | undefined>(
     undefined
   );
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       const res = await getMovements(userId);
+      if (!res) {
+        setErrorMessage(GENERIC_MESSAGE_ERROR);
+        return;
+      }
       setMovements(res?.data);
-      return;
+      // return;
     };
     try {
       fetchData();
     } catch (err: any) {
       setErrorMessage(GENERIC_MESSAGE_ERROR);
+    } finally {
+      setIsLoading(false);
     }
   }, []);
 
-  return { movements, errorMessage };
+  return { movements, isLoading, errorMessage };
 };

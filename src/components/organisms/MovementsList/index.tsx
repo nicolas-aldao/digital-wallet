@@ -11,13 +11,13 @@ interface MovementsListProps {
 }
 
 export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
-  const { movements, errorMessage } = useGetMovements(userId!);
+  const { movements, isLoading } = useGetMovements(userId!);
 
   return (
     <>
       <PageTitle title="Your Movements" className="mt-5" />
       <ScrollShadow>
-        {!movements && !errorMessage && <CenteredSpinner />}
+        {isLoading && <CenteredSpinner />}
         {movements && userId && (
           <>
             <Listbox
@@ -60,7 +60,6 @@ export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
             </Listbox>
           </>
         )}
-        {errorMessage && <p>{errorMessage}</p>}
       </ScrollShadow>
     </>
   );

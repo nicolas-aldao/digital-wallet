@@ -1,10 +1,10 @@
 import {
   Button,
   Input,
-  Modal,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
+  // Modal,
+  // ModalContent,
+  // ModalFooter,
+  // ModalHeader,
   Spinner,
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
@@ -13,6 +13,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useTransfer } from "../../../hooks/useTransfer";
 import { GoBackButton } from "../../atoms/GoBackButton";
 import { PageTitle } from "../../atoms/PageTitle";
+import { ModalOneButton } from "../../organisms/ModalOneButton";
 import classes from "./transfer.module.css";
 
 export const Transfer = () => {
@@ -73,7 +74,16 @@ export const Transfer = () => {
         Transfer
       </Button>
       {isLoading && <Spinner color="primary" />}
-      <Modal isOpen={isOpen} className={classes.modal}>
+      <ModalOneButton
+        isOpen={isOpen}
+        messageModal={messageModal}
+        color={errorMessage ? "danger" : "success"}
+        onPress={() =>
+          errorMessage ? setIsOpen(false) : navigate(`/home/${user?._id}`)
+        }
+        buttonText={response ? "Back to home" : "Close"}
+      />
+      {/* <Modal isOpen={isOpen} className={classes.modal}>
         <ModalContent className="w-fit bg-primary-50">
           <>
             <ModalHeader className="flex flex-col gap-1 text-fonts-secondary border-colors-secondary">
@@ -93,7 +103,7 @@ export const Transfer = () => {
             </ModalFooter>
           </>
         </ModalContent>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

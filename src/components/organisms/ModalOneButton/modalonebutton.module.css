@@ -1,0 +1,8 @@
+.modal {
+  display: flex;
+  align-self: center;
+  max-width: 350px !important;
+}
+.modal > button {
+  display: none;
+}

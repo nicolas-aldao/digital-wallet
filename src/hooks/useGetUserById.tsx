@@ -1,23 +1,43 @@
 import { useEffect, useState } from "react";
+import { GENERIC_MESSAGE_ERROR } from "../Constants";
 import { getUserById } from "../services/apiDigitalWallet";
 import { User } from "../types/user";
 
 export const useGetUserById = (userId: string) => {
   const [user, setUser] = useState<User>();
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<String | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       const res = await getUserById(userId);
+      if (!res) {
+        //throw new Error();
+        setErrorMessage(GENERIC_MESSAGE_ERROR);
+        return;
+      }
       setUser(res?.data);
-      return;
+      // setIsLoading(false);
+      // return;
     };
     try {
       fetchData();
     } catch (err: any) {
-      setErrorMessage(err.toString());
+      setErrorMessage(GENERIC_MESSAGE_ERROR);
+      // setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
   }, []);
 
-  return [user, errorMessage];
+  useEffect(() => {
+    console.log("user ", user);
+    console.log("error ", errorMessage);
+    console.log("isLoading ", isLoading);
+  }, [user, errorMessage, isLoading]);
+
+  return { user, isLoading, errorMessage };
 };
