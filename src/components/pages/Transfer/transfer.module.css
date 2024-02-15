@@ -25,11 +25,7 @@
   font-size: 60px;
 }
 
-/* .modal {
-  display: flex;
-  align-self: center;
-  max-width: 350px !important;
+.button {
+  color: theme("colors.text_button_color") !important;
+  font-size: 20px !important;
 }
-.modal > button {
-  display: none;
-} */

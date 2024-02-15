@@ -1,12 +1,4 @@
-import {
-  Button,
-  Input,
-  // Modal,
-  // ModalContent,
-  // ModalFooter,
-  // ModalHeader,
-  Spinner,
-} from "@nextui-org/react";
+import { Button, Input, Spinner } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -65,7 +57,9 @@ export const Transfer = () => {
       />
       <Button
         color="primary"
-        className="mt-5"
+        variant="shadow"
+        size="lg"
+        className={`mt-2 w-fit flex self-center px-16 ${classes.button}`}
         disabled={isLoading || amount === 0}
         onClick={() => {
           setRunHook(true);
@@ -83,27 +77,6 @@ export const Transfer = () => {
         }
         buttonText={response ? "Back to home" : "Close"}
       />
-      {/* <Modal isOpen={isOpen} className={classes.modal}>
-        <ModalContent className="w-fit bg-primary-50">
-          <>
-            <ModalHeader className="flex flex-col gap-1 text-fonts-secondary border-colors-secondary">
-              {messageModal}
-            </ModalHeader>
-            <ModalFooter>
-              <Button
-                color={errorMessage ? "danger" : "success"}
-                onPress={() =>
-                  errorMessage
-                    ? setIsOpen(false)
-                    : navigate(`/home/${user?._id}`)
-                }
-              >
-                {response ? "Back to home" : "Close"}
-              </Button>
-            </ModalFooter>
-          </>
-        </ModalContent>
-      </Modal> */}
     </>
   );
 };

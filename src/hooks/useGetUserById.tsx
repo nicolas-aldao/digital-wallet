@@ -33,11 +33,5 @@ export const useGetUserById = (userId: string) => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log("user ", user);
-    console.log("error ", errorMessage);
-    console.log("isLoading ", isLoading);
-  }, [user, errorMessage, isLoading]);
-
   return { user, isLoading, errorMessage };
 };

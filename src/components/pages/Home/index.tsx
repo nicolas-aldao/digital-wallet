@@ -22,7 +22,6 @@ export const Home = () => {
       <UserFullName user={user} isLoading={isLoading} />
       <CardBalance info={user} />
       <MovementsList userId={id} />
-      {/* {errorMessage && <p>something went wrong!</p>} */}
       <ModalOneButton
         isOpen={Boolean(errorMessage)}
         messageModal={GENERIC_MESSAGE_ERROR}

@@ -28,6 +28,7 @@ export default {
             gray: "#c2c2c2",
             whiteBlack: "#11181C",
             foreground: "#ECEDEE", // or 50 to 900 DEFAULT
+            text_button_color: "#FFFFFF",
             primary: {
               base: "#006FEE",
               50: "#001731",
@@ -54,6 +55,7 @@ export default {
             gray: "#ECEDEE",
             whiteBlack: "#ECEDEE",
             foreground: "#ECEDEE", // or 50 to 900 DEFAULT
+            text_button_color: "#FFFFFF",
             primary: {
               base: "#006FEE",
               50: "#001731",
