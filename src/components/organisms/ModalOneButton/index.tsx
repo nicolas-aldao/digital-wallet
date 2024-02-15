@@ -6,14 +6,15 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@nextui-org/react";
+import { colors } from "../../../types/colors";
 import classes from "./modalonebutton.module.css";
 
 interface ModalOneButtonProps {
-  isOpen: Boolean;
-  messageModal: String;
-  color: String;
+  isOpen: boolean;
+  messageModal: string;
+  color: colors;
   onPress: () => void;
-  buttonText: String;
+  buttonText: string;
 }
 
 export const ModalOneButton: FC<ModalOneButtonProps> = ({
@@ -24,7 +25,7 @@ export const ModalOneButton: FC<ModalOneButtonProps> = ({
   buttonText,
 }) => {
   return (
-    <Modal isOpen={isOpen ? isOpen : false} className={classes.modal}>
+    <Modal isOpen={isOpen} className={classes.modal}>
       <ModalContent className="w-fit bg-primary-50">
         <>
           <ModalHeader className="flex flex-col gap-1 text-fonts-secondary border-colors-secondary">
