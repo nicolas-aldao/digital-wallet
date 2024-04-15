@@ -59,7 +59,7 @@ export const Transfer = () => {
         color="primary"
         variant="shadow"
         size="lg"
-        className={`mt-2 w-fit flex self-center px-16 ${classes.button}`}
+        className={`mt-2 w-fit flex self-center px-16 ${classes.button} hover:cursor-pointer`}
         disabled={isLoading || amount === 0}
         onClick={() => {
           setRunHook(true);
