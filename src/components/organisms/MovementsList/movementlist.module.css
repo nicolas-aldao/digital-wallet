@@ -1,0 +1,6 @@
+.accordion > div > h2 > button {
+  padding-bottom: 0 !important;
+}
+.accordion > div > section > div {
+  padding: 0 !important;
+}

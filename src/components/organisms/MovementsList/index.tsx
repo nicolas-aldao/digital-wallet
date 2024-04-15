@@ -10,6 +10,7 @@ import { Movements } from "../../../types/movements";
 import { formatDateTime } from "../../../utils/formatDateTime";
 import { useGetMovements } from "../../../hooks/useGetMovements";
 import { CenteredSpinner } from "../../atoms/CenteredSpinner";
+import classes from "./movementlist.module.css";
 
 interface MovementsListProps {
   userId: string | undefined;
@@ -21,7 +22,7 @@ export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
 
   return (
     <>
-      <Accordion>
+      <Accordion className={classes.accordion}>
         <AccordionItem
           key="1"
           aria-label="Your Movements"
@@ -34,11 +35,10 @@ export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
                 <Listbox
                   items={movements}
                   // emptyContent={<CenteredSpinner />}
-                  color="primary"
                   variant="light"
                 >
                   {(item: Movements) => (
-                    <ListboxItem key={item._id}>
+                    <ListboxItem key={item._id} className="p-0 pb-1">
                       <div key={item._id}>
                         <span
                           className={
