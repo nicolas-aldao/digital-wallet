@@ -7,7 +7,7 @@ import { GoBackButton } from "../../atoms/GoBackButton";
 import { MoneyInput } from "../../atoms/MoneyInput";
 import { PageTitle } from "../../atoms/PageTitle";
 import { TransferButton } from "../../atoms/TransferButton";
-import { ModalResultTransfer } from "./modalResultTransfer";
+import { ModalResultTransfer } from "./ModalResultTransfer";
 
 export const Transfer = () => {
   const user = useSelector((state: any) => state.user.value);
