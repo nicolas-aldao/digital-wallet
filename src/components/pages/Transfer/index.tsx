@@ -2,6 +2,7 @@ import { Button, Input, Spinner } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { GENERIC_MESSAGE_ERROR } from "../../../Constants";
 import { useTransfer } from "../../../hooks/useTransfer";
 import { GoBackButton } from "../../atoms/GoBackButton";
 import { PageTitle } from "../../atoms/PageTitle";
@@ -29,7 +30,7 @@ export const Transfer = () => {
       setIsOpen(true);
     }
     if (errorMessage) {
-      setMessageModal(errorMessage);
+      setMessageModal(GENERIC_MESSAGE_ERROR);
       setIsOpen(true);
     }
   }, [response, errorMessage]);
