@@ -1,0 +1,11 @@
+.eye {
+  height: 25px !important;
+  left: 70px;
+  top: 2px;
+  border: none;
+}
+
+.iconClosed {
+  position: relative;
+  left: 5px;
+}
