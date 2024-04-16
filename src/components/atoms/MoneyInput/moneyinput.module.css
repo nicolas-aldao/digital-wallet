@@ -24,8 +24,3 @@
   -moz-appearance: textfield;
   font-size: 60px;
 }
-
-.button {
-  color: theme("colors.text_button_color") !important;
-  font-size: 20px !important;
-}

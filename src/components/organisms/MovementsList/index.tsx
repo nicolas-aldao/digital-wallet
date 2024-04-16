@@ -49,7 +49,7 @@ export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
                         >
                           {item.senderId === userId
                             ? "You sent "
-                            : "You receive "}
+                            : "You received "}
                         </span>
                         <span
                           className={
