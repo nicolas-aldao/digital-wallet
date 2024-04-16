@@ -2,7 +2,7 @@ import { FC } from "react";
 // svg from https://flowbite.com/icons
 
 interface ClosedEyeIconProps {
-  className: string;
+  className?: string;
 }
 
 const ClosedEyeIcon: FC<ClosedEyeIconProps> = ({ className }) => (

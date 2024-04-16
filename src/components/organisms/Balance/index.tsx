@@ -27,11 +27,7 @@ export const Balance: FC<BalanceProps> = ({ info }) => {
           onClick={() => setShowBalance(!showBalance)}
           className={classes.eye}
         >
-          {showBalance ? (
-            <EyeIcon />
-          ) : (
-            <ClosedEyeIcon className={classes.iconClosed} />
-          )}
+          {showBalance ? <EyeIcon /> : <ClosedEyeIcon />}
         </Button>
       )}
     </p>

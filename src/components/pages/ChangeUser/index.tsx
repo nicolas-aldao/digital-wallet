@@ -34,7 +34,7 @@ export const ChangeUser = () => {
           </Select>
           <Button
             onClick={() => navigate(`/home/${value}`)}
-            disabled={value === ""}
+            isDisabled={value === ""}
             color="primary"
             className="mt-4 w-fit flex self-center"
           >
