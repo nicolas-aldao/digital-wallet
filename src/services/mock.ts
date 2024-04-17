@@ -22,7 +22,7 @@ export class MockService implements DigitalWalletProvider {
     ];
   };
 
-  getUsersByIds = async (ids: Array<string>): Promise<User[] | undefined> => {
+  getUsersByIds = async (): Promise<User[] | undefined> => {
     return [
       {
         _id: "1",
@@ -41,7 +41,7 @@ export class MockService implements DigitalWalletProvider {
     ];
   };
 
-  getUserById = async (id: string): Promise<User> => {
+  getUserById = async (): Promise<User> => {
     return {
       _id: "1",
       firstname: "John",
@@ -51,11 +51,7 @@ export class MockService implements DigitalWalletProvider {
     };
   };
 
-  doTransfer = async (
-    senderId: string,
-    receiverId: string,
-    amount: number
-  ): Promise<any> => {
+  doTransfer = async (): Promise<any> => {
     // return {
     //   request: { status: 200 },
     //   data: { message: "Transfer Successful" },
@@ -65,7 +61,7 @@ export class MockService implements DigitalWalletProvider {
     };
   };
 
-  getMovements = async (id: string): Promise<Movements[] | undefined> => {
+  getMovements = async (): Promise<Movements[] | undefined> => {
     return [
       {
         _id: "1",
