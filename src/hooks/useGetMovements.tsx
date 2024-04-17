@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { GENERIC_MESSAGE_ERROR } from "../Constants";
-import { getMovements } from "../services/apiDigitalWallet";
+import { WalletService } from "../services/walletService";
+import { provider } from "../services/main";
 import { Movements } from "../types/movements";
 
 export const useGetMovements = (userId: string) => {
+  const walletService = new WalletService(provider);
+
   const [movements, setMovements] = useState<Movements[] | undefined>(
     undefined
   );
@@ -15,12 +18,12 @@ export const useGetMovements = (userId: string) => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const res = await getMovements(userId);
+      const res = await walletService.getMovements(userId);
       if (!res) {
         setErrorMessage(GENERIC_MESSAGE_ERROR);
         return;
       }
-      setMovements(res?.data);
+      setMovements(res);
       // return;
     };
     try {

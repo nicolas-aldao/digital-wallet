@@ -26,7 +26,7 @@ export const ChangeUser = () => {
             onChange={(e) => setValue(e.target.value)}
             placeholder={"Selected User"}
           >
-            {users.map((user) => (
+            {users?.map((user) => (
               <SelectItem key={user._id} value={user._id}>
                 {`${user.firstname} ${user.lastname}`}
               </SelectItem>
