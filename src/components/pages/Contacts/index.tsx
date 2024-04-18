@@ -1,4 +1,4 @@
-import { Listbox, ListboxItem, Avatar, Spinner } from "@nextui-org/react";
+import { Listbox, ListboxItem, Avatar } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { API_GET_RANDOM_AVATARS } from "../../../Constants";
