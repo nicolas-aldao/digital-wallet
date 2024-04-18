@@ -6,12 +6,14 @@ import { ModalOneButton } from "../../organisms/ModalOneButton";
 interface ModalResultTransferProps {
   response?: string;
   errorMessage?: string;
+  setErrorMessage?: (val: string) => void;
   userId: string;
 }
 
 export const ModalResultTransfer: FC<ModalResultTransferProps> = ({
   response,
   errorMessage,
+  setErrorMessage,
   userId,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,9 +36,14 @@ export const ModalResultTransfer: FC<ModalResultTransferProps> = ({
       isOpen={isOpen}
       messageModal={messageModal}
       color={errorMessage ? "danger" : "success"}
-      onPress={() =>
-        errorMessage ? setIsOpen(false) : navigate(`/home/${userId}`)
-      }
+      onPress={() => {
+        if (errorMessage) {
+          setIsOpen(false);
+          setErrorMessage ? setErrorMessage("") : null;
+        } else {
+          navigate(`/home/${userId}`);
+        }
+      }}
       buttonText={response ? "Back to home" : "Close"}
     />
   );

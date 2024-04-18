@@ -6,23 +6,21 @@ import { Movements } from "../types/movements";
 
 export class WebApiService implements DigitalWalletProvider {
   getUsers = async (): Promise<User[] | undefined> => {
-    try {
-      const res = await axios.get(`${API_URL}/users`);
+    const res = await axios.get(`${API_URL}/users`);
+    if (res?.request?.status === 200) {
       return res.data;
-    } catch (err) {
-      console.log(err);
+    } else {
+      throw new Error("error!");
     }
   };
 
   getUsersByIds = async (ids: Array<string>): Promise<User[] | undefined> => {
-    try {
-      const idsQueryString = ids.join(",");
-      const res = await axios.get(
-        `${API_URL}/users/list?ids=${idsQueryString}`
-      );
+    const idsQueryString = ids?.join(",");
+    const res = await axios.get(`${API_URL}/users/list?ids=${idsQueryString}`);
+    if (res?.request?.status === 200) {
       return res.data;
-    } catch (err) {
-      console.log(err);
+    } else {
+      throw new Error("error!");
     }
   };
 
@@ -40,15 +38,15 @@ export class WebApiService implements DigitalWalletProvider {
     receiverId: string,
     amount: number
   ): Promise<any> => {
-    try {
-      const res = await axios.post(`${API_URL}/transfer`, {
-        senderId,
-        receiverId,
-        amount,
-      });
-      return res;
-    } catch (err) {
-      return err;
+    const res = await axios.post(`${API_URL}/transfer`, {
+      senderId,
+      receiverId,
+      amount,
+    });
+    if (res?.request?.status === 200) {
+      return res?.data?.message;
+    } else {
+      throw new Error("error!");
     }
   };
 

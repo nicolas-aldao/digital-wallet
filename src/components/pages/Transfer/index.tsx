@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Spinner } from "@nextui-org/react";
@@ -14,12 +14,24 @@ export const Transfer = () => {
   const { id } = useParams();
   const [amount, setAmount] = useState<number>(0);
   const [runHook, setRunHook] = useState(false);
-  const { response, isLoading, errorMessage } = useTransfer(
+  const { response, isLoading, errorMessage, setErrorMessage } = useTransfer(
     user?._id,
     id!,
     amount,
     runHook
   );
+
+  // useEffect(() => {
+  //   console.log("errorMessage ", errorMessage);
+  // }, [errorMessage]);
+
+  // useEffect(() => {
+  //   console.log("response ", response);
+  // }, [response]);
+
+  useEffect(() => {
+    if (runHook) setRunHook(false);
+  }, [runHook]);
 
   return (
     <>
@@ -41,6 +53,7 @@ export const Transfer = () => {
       <ModalResultTransfer
         response={response}
         errorMessage={errorMessage}
+        setErrorMessage={setErrorMessage}
         userId={user?._id}
       />
     </>

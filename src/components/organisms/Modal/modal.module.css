@@ -4,5 +4,6 @@
   max-width: 350px !important;
 }
 .modal > button {
+  /* deletes cross close button */
   display: none;
 }

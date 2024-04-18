@@ -6,6 +6,7 @@ import {
   Accordion,
   AccordionItem,
 } from "@nextui-org/react";
+import { MOVEMENTS_MESSAGE_ERROR } from "../../../Constants";
 import { Movements } from "../../../types/movements";
 import { formatDateTime } from "../../../utils/formatDateTime";
 import { useGetMovements } from "../../../hooks/useGetMovements";
@@ -17,7 +18,7 @@ interface MovementsListProps {
 }
 
 export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
-  const { movements, isLoading } = useGetMovements(userId!);
+  const { movements, isLoading, errorMessage } = useGetMovements(userId!);
   //const textClassName = "hover:text-fonts-secondary";
 
   return (
@@ -74,6 +75,9 @@ export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
                   )}
                 </Listbox>
               </>
+            )}
+            {errorMessage && (
+              <p className="mt-2 ml-4 text-danger">{MOVEMENTS_MESSAGE_ERROR}</p>
             )}
           </ScrollShadow>
         </AccordionItem>

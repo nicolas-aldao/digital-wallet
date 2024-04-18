@@ -1,7 +1,10 @@
 .eye {
   position: absolute !important;
   height: 25px !important;
-  left: 150px;
+  left: 210px;
   top: 14px;
   border: none;
+  min-width: 5px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }

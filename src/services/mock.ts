@@ -3,26 +3,37 @@ import { User } from "../types/user";
 import { Movements } from "../types/movements";
 
 export class MockService implements DigitalWalletProvider {
+  wait = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 2500));
+  };
+
   getUsers = async (): Promise<User[] | undefined> => {
-    return [
-      {
-        _id: "1",
-        firstname: "John",
-        lastname: "Doe",
-        balance: 100,
-        contacts: [],
-      },
-      {
-        _id: "2",
-        firstname: "Jane",
-        lastname: "Doe",
-        balance: 200,
-        contacts: [],
-      },
-    ];
+    await this.wait();
+    const res = {
+      request: { status: 200 },
+      data: [
+        {
+          _id: "1",
+          firstname: "John",
+          lastname: "Doe",
+          balance: 100,
+          contacts: [],
+        },
+        {
+          _id: "2",
+          firstname: "Jane",
+          lastname: "Doe",
+          balance: 200,
+          contacts: [],
+        },
+      ],
+    };
+    return res.data;
+    // throw new Error("error!");
   };
 
   getUsersByIds = async (): Promise<User[] | undefined> => {
+    await this.wait();
     return [
       {
         _id: "1",
@@ -39,9 +50,11 @@ export class MockService implements DigitalWalletProvider {
         contacts: [],
       },
     ];
+    // throw new Error("error!");
   };
 
   getUserById = async (): Promise<User> => {
+    await this.wait();
     return {
       _id: "1",
       firstname: "John",
@@ -52,16 +65,20 @@ export class MockService implements DigitalWalletProvider {
   };
 
   doTransfer = async (): Promise<any> => {
-    // return {
-    //   request: { status: 200 },
-    //   data: { message: "Transfer Successful" },
-    // };
-    return {
-      response: { status: 400, data: { error: "Transfer Failed" } },
+    await this.wait();
+
+    const res = {
+      request: { status: 200 },
+      data: { message: "Transfer Successful" },
     };
+    return res.data.message;
+
+    // const resFailed = { status: 400, data: { error: "Transfer Failed" } },
+    // throw new Error("error!");
   };
 
   getMovements = async (): Promise<Movements[] | undefined> => {
+    await this.wait();
     return [
       {
         _id: "1",

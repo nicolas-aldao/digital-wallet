@@ -19,27 +19,23 @@ export const useTransfer = (
     if (runCode) {
       const runTransfer = async () => {
         setIsLoading(true);
-        const res = await walletService.doTransfer(
-          idSender,
-          idReceiver,
-          amount
-        );
-        if (res?.request?.status === 200) {
-          setResponse(res?.data?.message);
-        } else if (res?.response?.status === 400) {
-          setErrorMessage(res?.response?.data?.error);
+        try {
+          const res = await walletService.doTransfer(
+            idSender,
+            idReceiver,
+            amount
+          );
+          setResponse(res);
+          return;
+        } catch (err: any) {
+          setErrorMessage(GENERIC_MESSAGE_ERROR);
+        } finally {
+          setIsLoading(false);
         }
-        setIsLoading(false);
-        return;
       };
-      try {
-        runTransfer();
-      } catch (err: any) {
-        setErrorMessage(GENERIC_MESSAGE_ERROR);
-        setIsLoading(false);
-      }
+      runTransfer();
     }
   }, [runCode]);
 
-  return { response, isLoading, errorMessage };
+  return { response, isLoading, errorMessage, setErrorMessage };
 };

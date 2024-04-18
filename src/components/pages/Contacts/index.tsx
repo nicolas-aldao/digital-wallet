@@ -6,29 +6,26 @@ import { User } from "../../../types/user";
 import { useGetUserByIds } from "../../../hooks/useGetUserByIds";
 import { GoBackButton } from "../../atoms/GoBackButton";
 import { PageTitle } from "../../atoms/PageTitle";
+import { CenteredSpinner } from "../../atoms/CenteredSpinner";
 
 export const Contacts = () => {
   const user = useSelector((state: any) => state.user.value);
-  const [data] = useGetUserByIds(user.contacts);
+  const { data, isLoading, errorMessage } = useGetUserByIds(user.contacts);
   const navigate = useNavigate();
 
   return (
     <>
       <GoBackButton text="Back to Home" />
       <PageTitle title="Your Contacts" />
-      {data && (
+      {data && !errorMessage && (
         <Listbox
           items={data}
-          emptyContent={
-            <div className="flex justify-center items-center mt-8">
-              <Spinner color="primary" />
-            </div>
-          }
+          emptyContent={!isLoading && <p>You don't have any contacts yet.</p>}
           color="primary"
           variant="flat"
         >
           {(item: User) => (
-            <ListboxItem key={item.firstname} textValue={item.firstname}>
+            <ListboxItem key={item._id} textValue={item.firstname}>
               <div
                 className="flex gap-2 items-center"
                 onClick={() => {
@@ -56,6 +53,8 @@ export const Contacts = () => {
           )}
         </Listbox>
       )}
+      {isLoading && <CenteredSpinner />}
+      {errorMessage && <p className="px-4 text-danger">{errorMessage}</p>}
     </>
   );
 };

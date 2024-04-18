@@ -1,14 +1,14 @@
-import { Button, Select, SelectItem } from "@nextui-org/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GENERIC_MESSAGE_ERROR } from "../../../Constants";
+import { Button, Select, SelectItem } from "@nextui-org/react";
 import { useGetUsers } from "../../../hooks/useGetUsers";
 import { PageTitle } from "../../atoms/PageTitle";
+import { Modal } from "../../organisms/Modal";
 import classes from "./changeuser.module.css";
 
 export const ChangeUser = () => {
+  const { users, isLoading, errorMessage } = useGetUsers();
   const [value, setValue] = useState("");
-  const [users] = useGetUsers();
   const navigate = useNavigate();
 
   return (
@@ -25,6 +25,7 @@ export const ChangeUser = () => {
             color="default"
             onChange={(e) => setValue(e.target.value)}
             placeholder={"Selected User"}
+            isLoading={isLoading}
           >
             {users?.map((user) => (
               <SelectItem key={user._id} value={user._id}>
@@ -42,7 +43,10 @@ export const ChangeUser = () => {
           </Button>
         </>
       )}
-      {!users && <p className="flex text-center">{GENERIC_MESSAGE_ERROR}</p>}
+      {!users ||
+        (errorMessage && (
+          <Modal isOpen={errorMessage !== ""} messageModal={errorMessage} />
+        ))}
     </>
   );
 };
