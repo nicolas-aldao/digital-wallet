@@ -18,19 +18,15 @@ export const useGetUserById = (userId: string) => {
       setIsLoading(true);
       const res = await walletService.getUserById(userId);
       if (!res) {
-        //throw new Error();
         setErrorMessage(GENERIC_MESSAGE_ERROR);
         return;
       }
       setUser(res);
-      // setIsLoading(false);
-      // return;
     };
     try {
       fetchData();
     } catch (err: any) {
       setErrorMessage(GENERIC_MESSAGE_ERROR);
-      // setIsLoading(false);
     } finally {
       setIsLoading(false);
     }

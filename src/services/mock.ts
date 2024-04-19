@@ -29,7 +29,7 @@ export class MockService implements DigitalWalletProvider {
       ],
     };
     return res.data;
-    // throw new Error("error!");
+    // throw new Error("Error!");
   };
 
   getUsersByIds = async (): Promise<User[] | undefined> => {
@@ -50,7 +50,7 @@ export class MockService implements DigitalWalletProvider {
         contacts: [],
       },
     ];
-    // throw new Error("error!");
+    // throw new Error("Error!");
   };
 
   getUserById = async (): Promise<User> => {
@@ -74,7 +74,7 @@ export class MockService implements DigitalWalletProvider {
     return res.data.message;
 
     // const resFailed = { status: 400, data: { error: "Transfer Failed" } },
-    // throw new Error("error!");
+    // throw new Error("Error!");
   };
 
   getMovements = async (): Promise<Movements[] | undefined> => {

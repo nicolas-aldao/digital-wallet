@@ -24,7 +24,6 @@ export const useGetMovements = (userId: string) => {
         return;
       }
       setMovements(res);
-      // return;
     };
     try {
       fetchData();

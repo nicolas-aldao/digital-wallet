@@ -21,14 +21,6 @@ export const Transfer = () => {
     runHook
   );
 
-  // useEffect(() => {
-  //   console.log("errorMessage ", errorMessage);
-  // }, [errorMessage]);
-
-  // useEffect(() => {
-  //   console.log("response ", response);
-  // }, [response]);
-
   useEffect(() => {
     if (runHook) setRunHook(false);
   }, [runHook]);
