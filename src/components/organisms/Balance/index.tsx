@@ -12,7 +12,10 @@ interface BalanceProps {
 export const Balance: FC<BalanceProps> = ({ info }) => {
   const [showBalance, setShowBalance] = useState(true);
   return (
-    <p className="flex text-xl font-bold text-fonts-primary">
+    <p
+      className="flex text-xl font-bold text-fonts-primary"
+      data-testid="balance"
+    >
       $
       {info === undefined ? (
         <Skeleton className="self-center ml-3 h-3 w-3/5 rounded-lg" />
@@ -26,6 +29,7 @@ export const Balance: FC<BalanceProps> = ({ info }) => {
           variant="bordered"
           onClick={() => setShowBalance(!showBalance)}
           className={classes.eye}
+          data-testid="eye-icon"
         >
           {showBalance ? <EyeIcon /> : <ClosedEyeIcon />}
         </Button>
