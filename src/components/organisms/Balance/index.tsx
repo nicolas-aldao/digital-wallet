@@ -13,7 +13,7 @@ export const Balance: FC<BalanceProps> = ({ info }) => {
   const [showBalance, setShowBalance] = useState(true);
   return (
     <p
-      className="flex text-xl font-bold text-fonts-primary"
+      className={`${classes.balance_card} flex text-xl font-bold text-fonts-primary`}
       data-testid="balance"
     >
       $
