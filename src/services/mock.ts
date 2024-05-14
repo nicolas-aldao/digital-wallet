@@ -18,6 +18,7 @@ export class MockService implements DigitalWalletProvider {
           lastname: "Doe",
           balance: 100,
           contacts: [],
+          profile_pic: "https://randomuser.me/api/portraits/men/47.jpg"
         },
         {
           _id: "2",
@@ -25,6 +26,7 @@ export class MockService implements DigitalWalletProvider {
           lastname: "Doe",
           balance: 200,
           contacts: [],
+          profile_pic: "https://randomuser.me/api/portraits/men/54.jpg"
         },
       ],
     };
@@ -41,6 +43,7 @@ export class MockService implements DigitalWalletProvider {
         lastname: "1",
         balance: 100,
         contacts: [],
+        profile_pic: "https://randomuser.me/api/portraits/men/5.jpg"
       },
       {
         _id: "2",
@@ -48,6 +51,7 @@ export class MockService implements DigitalWalletProvider {
         lastname: "2",
         balance: 200,
         contacts: [],
+        profile_pic: "https://randomuser.me/api/portraits/men/47.jpg"
       },
     ];
     // throw new Error("Error!");
@@ -61,6 +65,7 @@ export class MockService implements DigitalWalletProvider {
       lastname: "Doe",
       balance: 100,
       contacts: [],
+      profile_pic: "https://randomuser.me/api/portraits/men/47.jpg"
     };
   };
 

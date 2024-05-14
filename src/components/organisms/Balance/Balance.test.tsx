@@ -8,6 +8,7 @@ beforeEach(() => {
     lastname: "Doe",
     balance: 100,
     contacts: [],
+    profile_pic: "https://randomuser.me/api/portraits/men/54.jpg"
   };
   render(<Balance info={user} />);
 });
