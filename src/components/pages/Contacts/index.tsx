@@ -1,4 +1,4 @@
-import { Listbox } from "@nextui-org/react";
+import { Listbox, ListboxItem } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { User } from "../../../types/user";
 import { useGetUserByIds } from "../../../hooks/useGetUserByIds";
@@ -15,14 +15,17 @@ export const Contacts = () => {
     <>
       <GoBackButton text="Back to Home" />
       <PageTitle title="Your Contacts" />
-      {data && !errorMessage && (
+      {(data && data?.length > 0 && !errorMessage) && (
         <Listbox
           items={data}
           emptyContent={!isLoading && <p>You don't have any contacts yet.</p>}
           color="primary"
           variant="flat"
         >
-          {(item: User) => <ContactItem item={item} />}
+          {(item: User) =>
+            <ListboxItem key={item._id} textValue={item.firstname}>
+              <ContactItem item={item} />
+            </ListboxItem>}
         </Listbox>
       )}
       {isLoading && <CenteredSpinner />}
