@@ -7,5 +7,5 @@ interface PageTitleProps {
 }
 
 export const PageTitle: FC<PageTitleProps> = ({ title, className }) => {
-  return <p className={`mb-1 ${classes.title} ${className}`}>{title}</p>;
+  return <p className={`${classes.title} ${className}`}>{title}</p>;
 };

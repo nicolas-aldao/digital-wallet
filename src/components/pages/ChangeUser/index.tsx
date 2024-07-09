@@ -5,6 +5,7 @@ import { useGetUsers } from "../../../hooks/useGetUsers";
 import { PageTitle } from "../../atoms/PageTitle";
 import { Modal } from "../../organisms/Modal";
 import classes from "./changeuser.module.css";
+import typo from "../../atoms/Typography/typography.module.css";
 
 export const ChangeUser = () => {
   const { users, isLoading, errorMessage } = useGetUsers();
@@ -15,7 +16,7 @@ export const ChangeUser = () => {
     <>
       <PageTitle
         title="Welcome to Digital Wallet App!"
-        className="mb-10 flex self-center"
+        className="mb-1 flex self-center"
       />
       {users && (
         <>
@@ -47,6 +48,12 @@ export const ChangeUser = () => {
         (errorMessage && (
           <Modal isOpen={errorMessage !== ""} messageModal={errorMessage} />
         ))}
+      <p className={`${typo.onboarding_text} ${classes.welcome_text}`}>
+        Manage your money from anywhere
+      </p>
+      <div className={classes.image_container}>
+        <img src="/images/home.jpg" width={200} className={classes.img} />
+      </div>
     </>
   );
 };
