@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Avatar } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
-import { User } from "../../../types/user";
 
+import { User } from "../../../types/user";
 
 interface ContactItemProps {
   item: User;
@@ -10,7 +10,7 @@ interface ContactItemProps {
 
 export const ContactItem: FC<ContactItemProps> = ({ item }) => {
   const navigate = useNavigate();
-  console.log('item! ', item)
+  console.log("item! ", item);
 
   return (
     <div

@@ -6,6 +6,7 @@ import {
   Accordion,
   AccordionItem,
 } from "@nextui-org/react";
+
 import { MOVEMENTS_MESSAGE_ERROR } from "../../../Constants";
 import { Movements } from "../../../types/movements";
 import { formatDateTime } from "../../../utils/formatDateTime";
@@ -23,11 +24,7 @@ export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
 
   return (
     <Accordion className={classes.accordion}>
-      <AccordionItem
-        key="1"
-        aria-label="Your Movements"
-        title="Your Movements"
-      >
+      <AccordionItem key="1" aria-label="Your Movements" title="Your Movements">
         <ScrollShadow className="h-[300px]">
           {isLoading && <CenteredSpinner />}
           {movements && userId && (
@@ -60,9 +57,7 @@ export const MovementsList: FC<MovementsListProps> = ({ userId }) => {
                       >
                         ${item.amount.toFixed(2)}{" "}
                       </span>
-                      <span>
-                        {item.senderId === userId ? "to " : "from "}
-                      </span>
+                      <span>{item.senderId === userId ? "to " : "from "}</span>
                       <span>
                         {item.senderId === userId
                           ? item.receiverFullname

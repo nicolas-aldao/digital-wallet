@@ -52,7 +52,12 @@ export const ChangeUser = () => {
         Manage your money from anywhere
       </p>
       <div className={classes.image_container}>
-        <img src="/images/home.webp" width={200} className={classes.img} />
+        <img
+          src="/images/home.webp"
+          alt="two people using their phones laughing together"
+          width={200}
+          className={classes.img}
+        />
       </div>
     </>
   );

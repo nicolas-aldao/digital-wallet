@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Skeleton } from "@nextui-org/react";
 import { User } from "../../../types/user";
-// import { GENERIC_MESSAGE_ERROR } from "../../../Constants";
 
 interface UserFullNameProps {
   user: User | undefined;
